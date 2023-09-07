@@ -1,4 +1,4 @@
-package com.demo;
+package com.demo.collections;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,11 +27,11 @@ public class CollectionsExample {
 
     public static void main(String[] args) {
 
-        Student s1 = new Student("Bruce", 100, "NYC");
-        Student s2 = new Student("Tony", 95, "Manhattan");
-        Student s3 = new Student("Angela", 107, "NJ");
-        Student s4 = new Student("Michael", 109, "Berlin");
-        Student s5 = new Student("Ingrid", 109, "Malmo");
+        Student s1 = new Student("Student1", 100, "Address1");
+        Student s2 = new Student("Student2", 95, "Address2");
+        Student s3 = new Student("Student3", 107, "Address3");
+        Student s4 = new Student("Student4", 109, "Address4");
+        Student s5 = new Student("Student5", 109, "Address5");
 
         // Set<Student> s = new HashSet<>();
         // s.addAll(Arrays.asList(s1,s2,s3,s4,s5));
@@ -44,8 +44,9 @@ public class CollectionsExample {
         System.out.println();
         lst2.stream().forEach(System.out::println);
 
-        // Concurrent Modificatione exception
-        List<String> l = new ArrayList<>();
+        
+        // List<String> l = new ArrayList<>(); // Concurrent Modificatione Exception
+        List<String> l = new CopyOnWriteArrayList<>(); // No Concurrent Modification Exception
         l.add("Test");
         l.add("Data");
 
