@@ -25,8 +25,7 @@ class StudentComparator implements Comparator<Student> {
 
 public class CollectionsExample {
 
-    public static void main(String[] args) {
-
+    public static void collection_examples() {
         Student s1 = new Student("Student1", 100, "Address1");
         Student s2 = new Student("Student2", 95, "Address2");
         Student s3 = new Student("Student3", 107, "Address3");
@@ -37,23 +36,30 @@ public class CollectionsExample {
         // s.addAll(Arrays.asList(s1,s2,s3,s4,s5));
 
         List<Student> lst = new ArrayList<>(Arrays.asList(s1, s2, s3, s4, s5));
-        List<Student> lst2 = new CopyOnWriteArrayList<>(Arrays.asList(s1,s2,s3,s4,s5));
+        List<Student> lst2 = new CopyOnWriteArrayList<>(Arrays.asList(s1, s2, s3, s4, s5));
 
         Collections.sort(lst, new StudentComparator());
         lst.stream().forEach(System.out::println);
         System.out.println();
         lst2.stream().forEach(System.out::println);
 
-        
         // List<String> l = new ArrayList<>(); // Concurrent Modificatione Exception
         List<String> l = new CopyOnWriteArrayList<>(); // No Concurrent Modification Exception
         l.add("Test");
         l.add("Data");
 
-        for(String s : l) {
+        for (String s : l) {
             System.out.println(s);
             l.add("New Data");
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("--- Collection Examples ---");
+        collection_examples();
+
+
+        
     }
 
 }
